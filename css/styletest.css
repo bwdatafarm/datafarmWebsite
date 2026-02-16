@@ -1,0 +1,430 @@
+html {
+    overflow-y: scroll
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center
+}
+
+.logo-img img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+nav a.active {
+  background-color: #e6f0ff;
+}
+
+.container.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #777; /* default gray for paragraph */
+  padding: 3em 1em;
+  box-sizing: border-box;
+  min-height: 100vh; /* full screen height */
+  background: url('../img/databackground.jpg') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  text-shadow: none; /* remove previous shadow */
+}
+
+/* Overlay for lightening image */
+.container.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: -1;
+}
+
+/* Headings */
+.container.hero .blue-text {
+  font-size: 3rem;
+  color: #003366;
+  margin: 0;
+  font-weight: bold;
+}
+
+.container.hero .white-text {
+  font-size: 3rem;
+  color: white;
+  margin: 0 0 1em 0;
+  font-weight: bold;
+}
+
+/* Paragraph */
+.container.hero .description {
+  font-size: 1.1rem;
+  color: #666666;
+  max-width: 720px;
+  margin: 0 auto 3em auto;
+  line-height: 1.5;
+}
+
+/* Boxes container */
+.container.hero .box-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-bottom: 3em;
+  flex-wrap: wrap; /* stack on small screens */
+}
+
+/* Individual translucent box */
+.container.hero .translucent-box {
+  background: rgba(128, 128, 128, 0.3);
+  padding: 1.5em 2em;
+  border-radius: 8px;
+  width: 220px;
+  box-sizing: border-box;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.container.hero .translucent-box h3 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Buttons container */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap; /* stack on small screens */
+}
+
+/* Buttons styling */
+.btn {
+  display: inline-block;
+  padding: 0.75em 2em;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  min-width: 140px;
+  text-align: center;
+}
+
+/* Left button: solid blue */
+.btn-left {
+  background-color: #003366;
+  color: white;
+  border: none;
+}
+
+.btn-left:hover {
+  background-color: #00509e;
+}
+
+/* Right button: lighter blue background */
+.btn-right {
+  background-color: #87ceeb;
+  color: #003366;
+  border: none;
+}
+
+.btn-right:hover {
+  background-color: #a3d1ff;
+}
+
+
+/* Gradient wrapper spans full width, stacks vertically */
+.gradient-wrapper {
+  background: linear-gradient(to bottom, #E2F5FD, white);
+  width: 100vw;
+  min-height: 100vh;
+  /* no fixed height — height grows with content */
+  padding: 0; /* no padding here */
+}
+
+/* Individual containers inside gradient wrapper */
+.gradient-wrapper .container {
+  max-width: 960px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2em;
+  box-sizing: border-box;
+  background: transparent; /* no background, so gradient shows through */
+  box-shadow: none; /* optional, remove shadows for seamless look */
+}
+
+/* Optional: remove default margin between containers */
+.gradient-wrapper .container + .container {
+  margin-top: 0;
+}
+
+/* Shared styling for title/paragraph/button layout */
+.shared-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 3em 1em;
+  box-sizing: border-box;
+}
+
+/* Blue section title */
+.shared-section .section-title {
+  font-size: 3rem;
+  color: #003366;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+/* Gray paragraph */
+.shared-section .section-description {
+  font-size: 1.1rem;
+  color: #666666;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Blue underline under paragraph */
+.shared-section .underline {
+  width: 60px;
+  height: 4px;
+  background-color: #003366;
+  margin: 1em auto 2em auto;
+  border-radius: 2px;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  max-width: 720px;
+  width: 100%;
+  height: 50vh; /* Key: limits height */
+  overflow: hidden;
+  align-items: center;
+  justify-items: center;
+}
+
+.logo-grid img {
+  max-width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+/* Logo grid only used in Clients section */
+.shared-section .logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  max-width: 720px;
+  margin: 0 auto 3em auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.shared-section .logo-grid img {
+  max-width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+body.locked-page {
+  height: 100vh;
+  overflow: hidden;
+}  
+
+body.locked-page .page-viewport {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+body.locked-page .locked-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+body.locked-page .footer {
+  height: 60px;
+  background-color: #003366;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.clients-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  overflow: hidden; /* Don't allow content to push past this */
+}
+
+.white-text {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 0.25em 0;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.blue-text {
+  color: #003366;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 1em 0;
+  text-align: center;
+}
+
+/* Paragraph in gray */
+.about-description {
+  color: #666666;
+  font-size: 1.1rem;
+  max-width: 720px;
+  margin: 0 auto 2em auto;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Thin blue underline */
+.blue-underline {
+  width: 60px;
+  height: 3px;
+  background-color: #003366;
+  margin: 0 auto 2em auto;
+  border-radius: 2px;
+}
+
+/* Meet the team title smaller */
+.meet-team-title {
+  font-size: 2.5rem;
+  margin-bottom: 2em;
+}
+
+/* Team row container */
+.team-row {
+  display: flex;
+  justify-content: center;
+  gap: 4em;
+  flex-wrap: wrap;
+  margin-bottom: 3em;
+}
+
+/* Individual team member */
+.team-member {
+  max-width: 320px;
+  text-align: center;
+}
+
+/* Circular photo container */
+.team-photo {
+  width: 160px;
+  height: 160px;
+  border: 3px solid gray;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 1em auto;
+}
+
+/* Team description paragraph */
+.team-description {
+  color: #666666;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #003366;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background-color: #e6f0ff;
+}
+
+nav a.contact {
+  background-color: #003366;
+  color: white;
+}
+
+nav a.contact:hover {
+  background-color: #00509e;
+}
+
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}
